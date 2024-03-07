@@ -1,0 +1,33 @@
+{
+    "version": "0.0.1",
+    "manifest_version":3,
+    "name":"Contador",
+    "description": "Contador de tiempo",
+    "action":{
+        "default_icon":"Icono.png",
+        "default_title": "Contador"
+    },
+    "permissions":[
+        "activeTab",
+        "storage",
+        "identity",
+        "tabs",
+        "scripting"
+    ],
+    "content_scripts":[
+        {
+         "matches": [
+            "https://meet.google.com/*"
+          ],
+          "js": ["content.js"]
+        }
+    ],
+    "background":{
+        "service_worker": "background.js"
+    },
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxNMMfx6LPdQXJd/9gBaaUvk0iXcHAw46OABHnJI2vPnMehXpztKnbqlMV+v28J6eev/rTMiI4ys7HeaBN52nz7j+afC33jmmwYgafEsF/JMYcpoYdyL9KVH7PgGLA6CMokdfB44nWTLH8uquknl+hGS47+m+des8LR17Q/UIfUT1TzMGC6y2g/jGWvxa/sa5AybpRX9D+ln4se5o8XIgEQzX3vNiqOm59E3EJWkkwLTgEPajfWKPJWKXYBAnIQ/zJ1ZE7hn/NdxBaJUHaESPgMFq7aB0fuY//tktiLfpLHcQNXQf1pINNMW0v+Uv8oepKC6cuBvYg/9z4I+8mWLL/QIDAQAB",
+    "oauth2": {
+       "client_id": "606117928545-cnisjruc3falv80c36en02s226slg9ud.apps.googleusercontent.com",
+       "scopes":["https://www.googleapis.com/auth/drive.metadata.readonly"]
+    }
+}

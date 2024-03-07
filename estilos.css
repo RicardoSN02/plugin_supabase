@@ -1,0 +1,97 @@
+body {
+    background-color: #23a89f2c;
+}
+
+
+.marco {
+    background-color: rgb(155, 212, 212);
+    color: rgb(4, 56, 102);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 20px;
+}
+
+.estatus{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 20px;
+}
+
+.grabacion{
+    background-color: rgb(155, 212, 212);;
+    border-radius: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 10px;
+}
+
+.contenedorEtiquetas{
+    background-color: rgb(155, 212, 212);;
+    border-radius: 24px;
+    margin-top: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 10px;
+}
+
+#texto{
+    border-radius: 8px;
+    border-style:groove;
+    border-color: #00832D;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    width: 150px;
+}
+
+.boton{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    border-radius: 24px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-color: rgb(76, 189, 255);
+    background-color:rgb(127, 255, 255);
+    border-width: 4px;
+}
+
+.boton#agregar{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.boton:hover{
+    background-color: #00832D;
+    border-color: #00772a;
+    color: aliceblue;
+}
+
+#botonPicame{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 99999;
+    font-size: 24px;
+}
+
+.parrafo{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    color: rgb(4, 56, 102);
+    padding-left: 6px;
+}
+
+
