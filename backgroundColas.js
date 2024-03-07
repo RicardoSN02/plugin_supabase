@@ -11,7 +11,7 @@ chrome.storage.local.remove('arregloColas', function() {
 */
 /*
  var dataToSave = {
-    arregloColas: ["pruebanuevaestructurapruebaespecial,00:17:27.000,10uTwj1Gp9Ib0cceReQXdddEiGafh-bk0"],
+    arregloColas: ["tercera supabase,00:00:40.000,1j9ikVxYAt55-p7JRGAxjaPZ8-LMxEQrj"],
     someOtherData: 'value'
   };
   
@@ -87,12 +87,15 @@ function guardarEtiquetaWeb(etiqueta){
 
   if(etiqueta){
    let init = {
-     method: 'PUT',
+     method: 'POST',
      async: true,
      body: JSON.stringify({
-      "url": `https://drive.google.com/file/d/${id}`,
-      "artifactTag": tagDescripcion,
-      "timestamp": tagTiempo
+      "id": 0,
+      "note":tagDescripcion,
+      "timestamp":tagTiempo,
+      "user":emailGuardar,
+      "video":`https://drive.google.com/file/d/${id}`,
+      "created_at":""
     })
      ,
      headers: {
@@ -100,7 +103,7 @@ function guardarEtiquetaWeb(etiqueta){
      }
    };
    fetch(
-     "https://apivideotagger.borrego-research.com/webserviceontology/videotagger/videos/tag",
+     "https://stunning-capybara-1efe1a.netlify.app/.netlify/functions/api/tags",
        init)
      .then((response) => console.log(response))
      .then(function(data) {

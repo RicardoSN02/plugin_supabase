@@ -4,10 +4,20 @@ importScripts('backgroundPermisos.js');
 importScripts('backgroundGuardar.js');
 
 let tokenGuardar = "";
+let emailGuardar = "";
 
 chrome.identity.getAuthToken({ interactive: true ,scopes: ['https://www.googleapis.com/auth/drive']}, function (token) {
    tokenGuardar = token;
    console.log("se creo token de api")
+});
+
+chrome.identity.getProfileUserInfo({accountStatus: 'ANY'},function(userInfo) {
+  if (userInfo.email) {
+    console.log("Correo electrónico del usuario:", userInfo.email);
+    emailGuardar = userInfo.email;
+  } else {
+    console.log("No se pudo obtener el correo electrónico del usuario.");
+  }
 });
 
 setTimeout(() => {

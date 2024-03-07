@@ -117,7 +117,7 @@ function formatearMS(tiempo_ms) {
     return (this + "").padStart(n, 0);
   }
 
-  return H.ceros(2) + ":" + M.ceros(2) + ":" + S.ceros(2) + "." + MS.ceros(3);
+  return H.ceros(2) + ":" + M.ceros(2) + ":" + S.ceros(2);
 }
 
 //////////////////////////////////////////Modificaciones con DOM

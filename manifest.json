@@ -11,6 +11,7 @@
         "activeTab",
         "storage",
         "identity",
+        "identity.email",
         "tabs",
         "scripting"
     ],
