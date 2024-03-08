@@ -76,7 +76,15 @@ function cambiarPermisos(videoCambiar){
      fetch(
        `https://www.googleapis.com/drive/v3/files/${videoCambiar.id}/permissions`,
          init)
-       .then((response) => response.json())
+        .then((response) => {
+          
+          if(response.status !== 200){
+            throw new Error("errorPermisos");
+          }
+          
+          return response.json();
+
+        }) 
        .then(function(data) {
            console.log(data);
 
@@ -92,7 +100,10 @@ function cambiarPermisos(videoCambiar){
               if(result.arregloPermisos.length === 0){
                 console.log("no hay mas videos por cambiarle los permisos") 
               }else{
-                colasPermisos();
+                setTimeout(() => {
+                  colasPermisos();
+               }, 5000);
+                
               }
             });
   
@@ -100,13 +111,17 @@ function cambiarPermisos(videoCambiar){
           });
 
        }).catch((error) => {
-        console.error("Ha fallado la consulta de cambio de permisos con el sig error");
-        console.error(error);
-        console.error("Se reintentara el cambio dentro de 10 segundos")
-
-        setTimeout(() => {
-           colasPermisos();
-        }, 10000);
+        if(error.message === "errorPermisos"){
+          console.error("Ha fallado la consulta de cambio de permisos con el sig error");
+          console.error(error);
+          console.error("Se reintentara el cambio dentro de 20 segundos")
+  
+          setTimeout(() => {
+             colasPermisos();
+          }, 20000);
+        }else{
+          console.log("se cambiaron los permisos con exito")
+        }
        });
     }
   }

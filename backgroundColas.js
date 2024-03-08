@@ -8,7 +8,8 @@
 chrome.storage.local.remove('arregloColas', function() {
   console.log('Se eliminó el arreglo de búsqueda de videos.');
 });
-*/
+/
+
 /*
  var dataToSave = {
     arregloColas: ["tercera supabase,00:00:40.000,1j9ikVxYAt55-p7JRGAxjaPZ8-LMxEQrj"],
@@ -105,7 +106,16 @@ function guardarEtiquetaWeb(etiqueta){
    fetch(
      "https://stunning-capybara-1efe1a.netlify.app/.netlify/functions/api/tags",
        init)
-     .then((response) => console.log(response))
+      .then((response) => {
+        console.log(response)
+
+        if(response.status !== 201){
+          throw new Error("errorGuardar");
+        }
+        
+        return response.json();
+
+      })
      .then(function(data) {
          console.log(data);
          chrome.storage.local.get('arregloColas', function(result) {
@@ -120,17 +130,22 @@ function guardarEtiquetaWeb(etiqueta){
             if(result.arregloColas.length === 0){
               console.log("no hay tags en la cola") 
             }else{
-              colasWebService();
+              setTimeout(() => {
+                colasWebService();
+              }, 5000); 
+              
             }
           });
 
           
         });
      }).catch((error) => {
-      console.error("Ha fallado la consulta de cambio de permisos con el sig error");
+      console.error("Ha fallado la consulta de cambio de guardar etiquetas con el sig error");
       console.error(error);
-      console.error("Se reintentara el guardado dentro de 10 segundos")
-      colasWebService();
+      console.error("Se reintentara el guardado dentro de 20 segundos")
+      setTimeout(() => {
+        colasWebService();
+      }, 20000); 
      });
   }
 }
